@@ -1,12 +1,1 @@
-<ul>
-<% @descendants.each do |d| %>
-  <% if d.level == 1 %>
-    <li><%= link_to d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>)</li>
-  <% end %>
-<% end %>
-<% @root_bookmarks.each do |b| %>
-  <li><%= link_to b.name, b.url %> (<%= link_to 'Edit', edit_bookmark_path(b) %>)</li>
-<% end %>
-</ul>
-
-<%= link_to 'Add Folder here ...', new_folder_folder_path(:folder_id => @root.id) %>
+<%= render "folders/folder" %>

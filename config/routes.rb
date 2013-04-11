@@ -6,6 +6,7 @@ OctopussE::Application.routes.draw do
 
   resources :folders do |f|
     resources :folders
+    resources :bookmarks
   end
 
 

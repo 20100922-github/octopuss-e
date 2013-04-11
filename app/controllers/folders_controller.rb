@@ -14,6 +14,8 @@ class FoldersController < ApplicationController
   # GET /folders/1.json
   def show
     @folder = Folder.find(params[:id])
+    @descendants = @folder.descendants
+    @bookmarks = Bookmark.where(:folder_id => @folder)
 
     respond_to do |format|
       format.html # show.html.erb

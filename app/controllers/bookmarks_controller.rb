@@ -24,7 +24,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/new
   # GET /bookmarks/new.json
   def new
-    @bookmark = Bookmark.new
+    @bookmark = Bookmark.new(params[:bookmark])
 
     respond_to do |format|
       format.html # new.html.erb

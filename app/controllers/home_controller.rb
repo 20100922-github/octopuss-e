@@ -1,12 +1,12 @@
 class HomeController < ApplicationController
   def index
     if (Folder.count == 0)
-      @root = Folder.new
-      @root.name = '*'
-      @root.save
+      @folder = Folder.new
+      @folder.name = '*'
+      @folder.save
     end
-    @root = Folder.first.root
-    @descendants = @root.descendants
-    @root_bookmarks = Bookmark.where(:folder_id => @root)
+    @folder = Folder.first.root
+    @descendants = @folder.descendants
+    @bookmarks = Bookmark.where(:folder_id => @folder)
   end
 end

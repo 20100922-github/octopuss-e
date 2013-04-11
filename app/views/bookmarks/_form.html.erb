@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :folder %><br />
-    <%= f.text_field :folder %>
+    <%= f.select :folder_id, Folder.all.collect{|fo| [fo.name, fo.id]}, :selected => params[:folder_id] %>
   </div>
   <div class="actions">
     <%= f.submit %>
