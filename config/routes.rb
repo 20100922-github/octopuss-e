@@ -1,4 +1,10 @@
 OctopussE::Application.routes.draw do
+  resources :bookmarks
+
+
+  resources :folders
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
