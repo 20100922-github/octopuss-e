@@ -24,7 +24,7 @@ class FoldersController < ApplicationController
   # GET /folders/new
   # GET /folders/new.json
   def new
-    @folder = Folder.new
+    @folder = Folder.new(params[:folder])
 
     respond_to do |format|
       format.html # new.html.erb
