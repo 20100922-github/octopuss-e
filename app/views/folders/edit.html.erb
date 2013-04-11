@@ -1,6 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<% for f in @folder.self_and_ancestors %>
+  <% if f.root? %>
+    <%= link_to 'Home', root_path %> (<%= link_to 'Edit', edit_folder_path(f) %>)
+  <% else %>
+    &gt; <%= link_to f.name, f %> (<%= link_to 'Edit', edit_folder_path(f) %>)
+  <% end %>
+<% end %>
+
 <h1>Editing folder</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @folder %> |
-<%= link_to 'Back', folders_path %>

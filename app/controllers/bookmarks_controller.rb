@@ -35,6 +35,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks/1/edit
   def edit
     @bookmark = Bookmark.find(params[:id])
+    @folder = @bookmark.folder
   end
 
   # POST /bookmarks
