@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'nested_set'
+gem 'acts-as-taggable-on'
 
 
 # Gems used only for assets and not required

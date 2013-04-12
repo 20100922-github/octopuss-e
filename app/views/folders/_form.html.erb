@@ -19,6 +19,10 @@
     <%= f.label :folder %><br />
     <%= f.select :parent_id, nested_set_options(Folder, @folder) {|i, level| "#{'-' * level} #{i.name}" }, :selected => params[:folder_id]  %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

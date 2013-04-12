@@ -6,7 +6,12 @@ class HomeController < ApplicationController
       @folder.save
     end
     @folder = Folder.first.root
-    @descendants = @folder.descendants
-    @bookmarks = Bookmark.where(:folder_id => @folder)
+    if params[:tag]
+      @descendants = @folder.descendants.tagged_with(params[:tag])
+      @bookmarks = Bookmark.where(:folder_id => @folder).tagged_with(params[:tag])
+    else
+      @descendants = @folder.descendants
+      @bookmarks = Bookmark.where(:folder_id => @folder)
+    end
   end
 end

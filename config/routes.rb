@@ -1,4 +1,5 @@
 OctopussE::Application.routes.draw do
+  get "tags/:tag", to: 'home#index', as: :tag
   get "home/index"
 
   resources :bookmarks
