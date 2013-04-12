@@ -1,7 +1,9 @@
 OctopussE::Application.routes.draw do
+  
+  resources :tags
+
   devise_for :users
 
-  get "tags/:tag", to: 'home#index', as: :tag
   get "home/index"
 
   resources :bookmarks

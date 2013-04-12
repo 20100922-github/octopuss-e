@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <ul>
+  <% @folders.each do |f| %>
+    <li><%= link_to f.name, folder_path(f) %></li>
+  <% end %>
+  <% @bookmarks.each do |b| %>
+    <li><%= link_to b.name, bookmark_path(b) %></li>
+  <% end %>
+  </ul>
+</p>

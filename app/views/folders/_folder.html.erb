@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<p>Tags: <%= raw @folder.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+<p>Tags: <%= raw @folder.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %></p>
 
 <ul>
   <li><%= link_to 'Add Folder here ...', new_folder_folder_path(:folder_id => @folder.id) %></li>
@@ -17,14 +17,14 @@
   <% if d.level == @folder.level + 1 %>
     <li>
       <%= link_to d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>)<br/>
-      Tags: <%= raw d.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      Tags: <%= raw d.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>
     </li>
   <% end %>
 <% end %>
 <% @bookmarks.each do |b| %>
   <li>
     <%= link_to b.name, b.url %> (<%= link_to 'Show', b %>) (<%= link_to 'Edit', edit_bookmark_path(b) %>)<br/>
-    Tags: <%= raw b.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    Tags: <%= raw b.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>
   </li>
 <% end %>
 </ul>
