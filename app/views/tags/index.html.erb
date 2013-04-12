@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +11,8 @@
 
 <% @tags.each do |tag| %>
   <tr>
-    <td><%= tag.name %></td>
+    <td><%= image_tag("small/light/tag_blue.png") + tag.name %></td>
+    <td><%= Bookmark.tagged_with(tag.name).count + Folder.tagged_with(tag.name).count %></td>
     <td><%= link_to 'Show', tag %></td>
   </tr>
 <% end %>

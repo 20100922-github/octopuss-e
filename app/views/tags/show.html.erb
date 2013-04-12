@@ -8,10 +8,10 @@
 <p>
   <ul>
   <% @folders.each do |f| %>
-    <li><%= link_to f.name, folder_path(f) %></li>
+    <li><%= link_to image_tag("small/light/folder.png") + f.name, folder_path(f) %></li>
   <% end %>
   <% @bookmarks.each do |b| %>
-    <li><%= link_to b.name, bookmark_path(b) %></li>
+    <li><%= link_to image_tag("small/light/world.png") + b.name, bookmark_path(b) %></li>
   <% end %>
   </ul>
 </p>

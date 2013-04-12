@@ -2,29 +2,29 @@
 
 <% for f in @folder.self_and_ancestors %>
   <% if f.root? %>
-    <%= link_to 'Home', root_path %> (<%= link_to 'Edit', edit_folder_path(f) %>)
+    <%= link_to image_tag("small/light/house.png") + 'Home', root_path %> (<%= link_to 'Edit', edit_folder_path(f) %>)
   <% else %>
-    &gt; <%= link_to f.name, f %> (<%= link_to 'Edit', edit_folder_path(f) %>)
+    &gt; <%= link_to image_tag("small/light/folder.png") + f.name, f %> (<%= link_to 'Edit', edit_folder_path(f) %>)
   <% end %>
 <% end %>
 
-<p>Tags: <%= raw @folder.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %></p>
+<p><%= link_to 'Tags:', tags_path %> <%= raw @folder.tags.map { |t| link_to image_tag("small/light/tag_blue.png") + t.name, tag_path(t) }.join(', ') %></p>
 
 <ul>
-  <li><%= link_to 'Add Folder here ...', new_folder_folder_path(:folder_id => @folder.id) %></li>
-  <li><%= link_to 'Add Bookmark here ...', new_folder_bookmark_path(:folder_id => @folder.id) %></li>
+  <li><%= link_to image_tag("small/light/folder_add.png") + 'Add Folder here ...', new_folder_folder_path(:folder_id => @folder.id) %></li>
+  <li><%= link_to image_tag("small/light/world_add.png") + 'Add Bookmark here ...', new_folder_bookmark_path(:folder_id => @folder.id) %></li>
 <% @descendants.each do |d| %>
   <% if d.level == @folder.level + 1 %>
     <li>
-      <%= link_to d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>)<br/>
-      Tags: <%= raw d.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>
+      <%= link_to image_tag("small/light/folder.png") + d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>)<br/>
+      Tags: <%= raw d.tags.map { |t| link_to image_tag("small/light/tag_blue.png") + t.name, tag_path(t) }.join(', ') %>
     </li>
   <% end %>
 <% end %>
 <% @bookmarks.each do |b| %>
   <li>
-    <%= link_to b.name, b.url %> (<%= link_to 'Show', b %>) (<%= link_to 'Edit', edit_bookmark_path(b) %>)<br/>
-    Tags: <%= raw b.tags.map { |t| link_to t.name, tag_path(t) }.join(', ') %>
+    <%= link_to image_tag("small/light/world.png") + b.name, b.url %> (<%= link_to 'Show', b %>) (<%= link_to 'Edit', edit_bookmark_path(b) %>)<br/>
+    Tags: <%= raw b.tags.map { |t| link_to image_tag("small/light/tag_blue.png") + t.name, tag_path(t) }.join(', ') %>
   </li>
 <% end %>
 </ul>
