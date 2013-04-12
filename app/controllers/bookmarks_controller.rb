@@ -42,10 +42,11 @@ class BookmarksController < ApplicationController
   # POST /bookmarks.json
   def create
     @bookmark = Bookmark.new(params[:bookmark])
+    @folder = @bookmark.folder
 
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
+        format.html { redirect_to folder_path(@folder), notice: 'Bookmark was successfully created.' }
         format.json { render json: @bookmark, status: :created, location: @bookmark }
       else
         format.html { render action: "new" }
