@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412041216) do
+ActiveRecord::Schema.define(:version => 20130412175117) do
 
   create_table "bookmarks", :force => true do |t|
     t.string   "name"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(:version => 20130412041216) do
     t.integer  "folder_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   add_index "bookmarks", ["folder_id"], :name => "index_bookmarks_on_folder_id"
+  add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -30,7 +32,10 @@ ActiveRecord::Schema.define(:version => 20130412041216) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
+    t.integer  "user_id"
   end
+
+  add_index "folders", ["user_id"], :name => "index_folders_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
