@@ -4,4 +4,6 @@ class Folder < ActiveRecord::Base
   has_many :bookmarks
   belongs_to :user
   attr_accessible :name, :parent_id, :tag_list, :user_id
+
+  validates :name, :user_id, :presence => true
 end
