@@ -16,14 +16,14 @@
 <% @descendants.each do |d| %>
   <% if d.level == @folder.level + 1 %>
     <li>
-      <%= link_to image_tag("small/light/folder.png") + d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>) (<%= d.user.email %>)<br/>
+      <%= link_to image_tag("small/light/folder.png") + d.name, d %> (<%= link_to 'Edit', edit_folder_path(d) %>) (<%= d.user.username %>)<br/>
       Tags: <%= raw d.tags.map { |t| link_to image_tag("small/light/tag_blue.png") + t.name, tag_path(t) }.join(', ') %>
     </li>
   <% end %>
 <% end %>
 <% @bookmarks.each do |b| %>
   <li>
-    <%= link_to image_tag("small/light/world.png") + b.name, b.url %> (<%= link_to 'Show', b %>) (<%= link_to 'Edit', edit_bookmark_path(b) %>) (<%= b.user.email %>)<br/>
+    <%= link_to image_tag("small/light/world.png") + b.name, b.url %> (<%= link_to 'Show', b %>) (<%= link_to 'Edit', edit_bookmark_path(b) %>) (<%= b.user.username %>)<br/>
     Tags: <%= raw b.tags.map { |t| link_to image_tag("small/light/tag_blue.png") + t.name, tag_path(t) }.join(', ') %>
   </li>
 <% end %>
