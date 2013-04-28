@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     if (Folder.count == 0)
       @folder = Folder.new
       @folder.name = '*'
+      @folder.user_id = current_user.id
       @folder.save
     end
     @folder = Folder.first.root
