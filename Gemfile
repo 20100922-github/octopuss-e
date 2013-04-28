@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'nested_set'
 gem 'acts-as-taggable-on'
 gem 'devise'
+gem 'nokogiri'
 
 
 # Gems used only for assets and not required
